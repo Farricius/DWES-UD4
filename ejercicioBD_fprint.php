@@ -105,10 +105,10 @@
         echo "</td>";
 
         echo "<td>";
-        printf("%s", $file->ModeloAvion);
+        printf("%s", $file->ModeloAvion); // printf($file->ModeloAvion);
         echo "</td>";
     }
-    echo "</tr>";
+    echo "</tr>"; // Debe ir pa dentro del while
     echo "</table>";
 
     mysqli_close($mysqli);
@@ -199,43 +199,9 @@
     echo "</tr>";
     echo "</table>";
 
-    mysqli_close($mysqli);
-
-
-
-    // foreach ($result as $fila) {
-
-    //     echo "<tr>";
-    //     echo "<td>$fila[id]</td>";
-    //     echo "<td>$fila[Origen]</td>";
-    //     echo "<td>$fila[Destino]</td>";
-    //     echo "<td>$fila[Fecha]</td>";
-    //     echo "<td>$fila[Companya]</td>";
-    //     echo "<td>$fila[ModeloAvion]</td>";
-    // }
-    // echo "</tr>";
-    // echo "</table>";
-
+    mysqli_close($mysqli);  
 
     ?>
 </body>
 
 </html>
-
-<!-- echo "<table border = 2>";
-    echo "<th>Nombre del acctor</th>";
-    echo "<th>Nombre del personaje</th>";
-    echo "<th>Género</th>";
-    echo "<th>Año de nacimiento</th>";
-    echo "<th>Edad</th>";
-    echo "<th>Foto</th>";
-
-    foreach ($personajes as $infoRow) {
-
-        echo "<tr>";
-        echo "<td>$infoRow[nombreReal]</td>";
-        echo "<td>$infoRow[nombreSerie]</td>";
-        echo "<td>$infoRow[genero]</td>";
-        echo "<td>$infoRow[nacimiento]</td>";
-        echo "<td>",calcularEdad($infoRow),"</td>";
-        echo "<td><img class = 'image' src='$infoRow[foto]'/></td>"; -->
