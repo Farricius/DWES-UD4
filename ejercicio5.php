@@ -65,7 +65,7 @@
         exit();
     }
 
-    $result = mysqli_query($mysqli, "DELETE FROM `vuelos` WHERE Origen = 'Barcelona' "); // -2 fila
+    $result = mysqli_query($mysqli, "DELETE FROM `vuelos` WHERE Origen = 'Barcelona' "); //
 
     if ($result == false) {
         echo ("La consulta NO ha funcionado correctamente");
