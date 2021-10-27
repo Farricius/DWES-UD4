@@ -46,7 +46,7 @@
     }
 
     $result2 = mysqli_query($mysqli, "UPDATE vuelos SET Destino = 'New York' WHERE  id  = '2' "); // Comillas solo a VALROES!!!!!!
-    if ($result == false) {
+    if ($result2 == false) {
         echo "La consulta no ha funcionado correctamente...";
     } else {
         echo "Se han actualizado ", mysqli_affected_rows($mysqli), " filas";

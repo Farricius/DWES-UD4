@@ -10,6 +10,7 @@
 
 <body>
     <?php
+
     // INSERT UNA FILA + MSG
 
     function creaConexion() {
@@ -21,17 +22,40 @@
         echo "<p>Error $error conectando a la base de datos:" . mysqli_connect_error() . "</p>";
         exit();
     }
+    return $mysqli;
 }
-
 
     function creaVuelo($origen, $destino, $fecha, $companya, $modeloAvion) {
 
-    creaConexion();
+    $mysqli = creaConexion();
     
-    $result = mysqli_query($mysqli, "INSERT INTO `vuelos` 
-    (Origen, Destino, Fecha, Companya, ModeloAvion) VALUES ('Madrid', 'Valencia', '2021-10-21 09:16:52', 'Iberia', 'A380')");
+    $sql = "INSERT INTO `vuelos` (Origen,Destino,Fecha,Companya,ModeloAvion) VALUES (?,?,?,?,?)";
+    $consulta = mysqli_stmt_init($mysqli);
 
+    if ($stmt = mysqli_prepare($mysqli, $sql)) {
+        mysqli_stmt_bind_param($stmt, "sssss", $Origen, $Destino, $Fecha, $Companya, $ModeloAvion);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+    }
+    mysqli_close($mysqli);
+}
 
+    function modificaDestino ($id, $destino) {
+
+        $mysqli = creaConexion();
+        $retorno = false;
+        $sql = "UPDATE `vuelos` SET `Destino` = ? WHERE `id` = ?";
+        $consulta = mysqli_stmt_init($mysqli);
+
+        if ($stmt = mysqli_prepare($mysqli, $sql)) {
+            mysqli_stmt_bind_param($stmt, "si", $Destino, $id);
+            $retorno = mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
+        }
+
+        mysqli_close($mysqli);
+        return $retorno;
     }
 
 ?>
+
