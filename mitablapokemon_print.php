@@ -26,44 +26,44 @@ try {
     cabeceraWapa();
     $pokemoncito = $conexion->query($sql);
 
-    while ($pokemoncito = $pokemoncitos->fetch(PDO::FETCH_ASSOC)) {
+    while ($poke = $pokemoncito->fetch(PDO::FETCH_ASSOC)) {
         echo "<tr>";
         echo "<td>";
-        echo $pokemoncito['nombre'];
+        echo $poke['nombre'];
         echo "</td>";
 
         echo "<td>";
-        echo $pokemoncito['tipo1'];
+        echo $poke['tipo1'];
         echo "</td>";
 
         echo "<td>";
-        echo $pokemoncito['tipo2'];
+        echo $poke['tipo2'];
         echo "</td>";
-        echo "</tr>";
 
         echo "<td>";
-        echo $pokemoncito['numero_lista'];
+        echo $poke['numero_lista'];
         echo "</td>";
-        echo "</tr>";
 
         echo "<td>";
-        echo $pokemoncito['generacion'];
+        echo $poke['generacion'];
         echo "</td>";
-        echo "</tr>";
 
         echo "<td>";
-        echo $pokemoncito['fecha_creacion'];
+        echo $poke['fecha_creacion'];
         echo "</td>";
-        echo "</tr>";
 
         echo "<td>";
-        echo $pokemoncito['imagen'];
+        echo $poke['imagen'];
         echo "</td>";
-        echo "</tr>";
 
         echo "<td>";
-        echo $pokemoncito['id'];
+        echo $poke['id'];
         echo "</td>";
-        echo "</tr>";
+
     }
     echo "</table>";
+
+} catch (PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+}
+    ?>
