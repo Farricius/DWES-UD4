@@ -16,6 +16,7 @@
     $baseDatos = "agenciaviajes";
     $usuario = "developer";
     $pass = "developer";
+    
     try {
         $conexion = new PDO("mysql:host=$servidor;dbname=$baseDatos", $usuario, $pass);
         echo "Conectado correctamente";
